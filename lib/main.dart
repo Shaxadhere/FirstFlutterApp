@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,75 +14,75 @@ class SIForm extends StatefulWidget {
 
 class _SIFormState extends State<SIForm> {
   final _minimumPadding = 5.0;
-  var _currency = ["Rupee", "Dollar", "Pound"];
+  var _parts = ["Neck", "Navel", "Thighs"];
+  var _actions = ["Lick", "Kiss", "Rub"];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Work Finder")),
+      backgroundColor: Colors.black,
       body: Container(
-          margin: EdgeInsets.all(_minimumPadding * 2),
+          color: Colors.black,
+          margin: EdgeInsets.only(top: _minimumPadding * 20),
           child: Column(children: <Widget>[
-            getImageAsset(),
-            Padding(
-                padding: EdgeInsets.only(
-                    top: _minimumPadding, bottom: _minimumPadding),
-                child: TextField(
-                  keyboardType: TextInputType.text,
-                  decoration: InputDecoration(
-                      labelText: "Email",
-                      hintText: "yourname@domain.com",
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0))),
-                )),
-            Padding(
-                padding: EdgeInsets.only(
-                    top: _minimumPadding, bottom: _minimumPadding),
-                child: TextField(
-                    keyboardType: TextInputType.visiblePassword,
-                    decoration: InputDecoration(
-                        labelText: "Password",
-                        hintText: "Enter your password",
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(5.0))))),
+            getImageParts(),
+            getImageActions(),
             Row(
-              children: <Widget>[
-                Expanded(
-                    child: TextField(
-                        keyboardType: TextInputType.text,
-                        decoration: InputDecoration(
-                            labelText: "Name",
-                            hintText: "Your Name",
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(0.5))))),
-                Expanded(
-                  child: DropdownButton<String>(
-                    items: _currency.map((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(value),
-                      );
-                    }).toList(),
-                    value: "Rupees",
-                    onChanged: (String newValueSelected) {},
-                  ),
-                )
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left: _minimumPadding * 10),
+                ),
               ],
-            )
+            ),
+            Padding(
+                padding: EdgeInsets.only(
+                    top: _minimumPadding, bottom: _minimumPadding),
+                child:
+                    RaisedButton(child: Text("Roll Dices!"), onPressed: () {}))
           ])),
     );
   }
 
-  Widget getImageAsset() {
-    AssetImage assetImage = AssetImage('images/logo.png');
+  Widget getImageParts() {
+    AssetImage parts = AssetImage('images/thighs.png');
     Image image = Image(
-      image: assetImage,
-      width: 125.0,
-      height: 125.0,
+      image: parts,
+      width: 200.0,
+      height: 200.0,
     );
     return Container(
       child: image,
-      margin: EdgeInsets.all(_minimumPadding * 10),
+      margin: EdgeInsets.all(_minimumPadding),
+    );
+  }
+
+  Widget getImageActions() {
+    var _actions = [
+      "images/touch.png",
+      "images/blow.png",
+      "images/kiss.png",
+      "images/lick.png",
+      "images/rub.png",
+      "images/suck.png",
+    ];
+    int count = 0;
+    Future.delayed(const Duration(milliseconds: 500), () {
+      count = count + 1;
+      setState(() {
+        // Here you can write your code for open new view
+      });
+    });
+    var random = new Random();
+    int index = random.nextInt(5);
+    AssetImage assetImage = AssetImage(_actions[index]);
+    Image image = Image(
+      image: assetImage,
+      width: 200.0,
+      height: 200.0,
+    );
+    return Container(
+      child: image,
+      margin: EdgeInsets.all(_minimumPadding),
     );
   }
 }

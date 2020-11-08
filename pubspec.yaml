@@ -46,7 +46,18 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - images/logo.png
+    - images/betweenlegs.png
+    - images/rub.png
+    - images/blow.png
+    - images/ears.png
+    - images/kiss.png
+    - images/lick.png
+    - images/lips.png
+    - images/navel.png
+    - images/neck.png
+    - images/suck.png
+    - images/thighs.png
+    - images/touch.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
