@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
 
@@ -43,7 +44,10 @@ class _SIFormState extends State<SIForm> {
     );
   }
 
-  Image img() {
+  Widget img() {
+    // new Timer.periodic(
+    //     const Duration(milliseconds: 10000), (Timer t) => setState(() {}));
+
     Random random;
     var _actions = [
       "images/some.png",
@@ -58,7 +62,17 @@ class _SIFormState extends State<SIForm> {
     random = new Random();
     int r = min + random.nextInt(max - min);
     String imageName = _actions[r].toString();
-    return Image.asset(imageName);
+
+    AssetImage assetImage = AssetImage(imageName);
+    Image image = Image(
+      image: assetImage,
+      width: 200.0,
+      height: 200.0,
+    );
+    return Container(
+      child: image,
+      margin: EdgeInsets.all(_minimumPadding),
+    );
   }
 
   Widget getImageParts() {
