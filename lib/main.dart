@@ -26,7 +26,7 @@ class _SIFormState extends State<SIForm> {
           margin: EdgeInsets.only(top: _minimumPadding * 20),
           child: Column(children: <Widget>[
             getImageParts(),
-            getImageActions(),
+            img(),
             Row(
               children: [
                 Padding(
@@ -43,6 +43,24 @@ class _SIFormState extends State<SIForm> {
     );
   }
 
+  Image img() {
+    Random random;
+    var _actions = [
+      "images/some.png",
+      "images/text.png",
+      "images/that.png",
+      "images/rolls.png",
+      "images/and.png",
+      "images/shuffles/png",
+    ];
+    int min = 0;
+    int max = _actions.length - 1;
+    random = new Random();
+    int r = min + random.nextInt(max - min);
+    String imageName = _actions[r].toString();
+    return Image.asset(imageName);
+  }
+
   Widget getImageParts() {
     AssetImage parts = AssetImage('images/some.png');
     Image image = Image(
@@ -50,6 +68,7 @@ class _SIFormState extends State<SIForm> {
       width: 200.0,
       height: 200.0,
     );
+
     return Container(
       child: image,
       margin: EdgeInsets.all(_minimumPadding),
