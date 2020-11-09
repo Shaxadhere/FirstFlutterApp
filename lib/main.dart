@@ -14,8 +14,8 @@ class SIForm extends StatefulWidget {
 
 class _SIFormState extends State<SIForm> {
   final _minimumPadding = 5.0;
-  var _parts = ["Neck", "Navel", "Thighs"];
-  var _actions = ["Lick", "Kiss", "Rub"];
+  var _parts = ["some", "text"];
+  var _actions = ["some", "text"];
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,7 @@ class _SIFormState extends State<SIForm> {
   }
 
   Widget getImageParts() {
-    AssetImage parts = AssetImage('images/thighs.png');
+    AssetImage parts = AssetImage('images/some.png');
     Image image = Image(
       image: parts,
       width: 200.0,
@@ -58,20 +58,20 @@ class _SIFormState extends State<SIForm> {
 
   Widget getImageActions() {
     var _actions = [
-      "images/touch.png",
-      "images/blow.png",
-      "images/kiss.png",
-      "images/lick.png",
-      "images/rub.png",
-      "images/suck.png",
+      "images/some.png",
+      "images/text.png",
+      "images/that.png",
+      "images/rolls.png",
+      "images/and.png",
+      "images/shuffles/png",
     ];
-    int count = 0;
-    Future.delayed(const Duration(milliseconds: 500), () {
-      count = count + 1;
-      setState(() {
-        // Here you can write your code for open new view
-      });
-    });
+    // int count = 0;
+    // Future.delayed(const Duration(milliseconds: 500), () {
+    //   count = count + 1;
+    //   setState(() {
+    //     // Here you can write your code for open new view
+    //   });
+    // });
     var random = new Random();
     int index = random.nextInt(5);
     AssetImage assetImage = AssetImage(_actions[index]);
